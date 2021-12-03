@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\controllerTurma;
+/* use App\Http\Controllers\admin\controllerTurma; */
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +28,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-route::get('/painel', ['as' => 'painel', 'uses' => 'Admin\HomeController@index']);
+route::get('/dash', ['as' => 'dash', 'uses' => 'Admin\HomeController@index']);
