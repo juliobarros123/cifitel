@@ -17,11 +17,11 @@ use App\Http\Controllers\admin\controllerTurma;
 // ['as' => 'admin.listar', 'uses' => 'Admin\CandidaturaController@index']
 
 
-// Route::get('/', function () {
-//     return view('site.index');
-// });
+ Route::get('/', function () {
+     return view('layouts._includes.painel.Header');
+ });
 //Tela Inicial
-Route::get('/   ', ['as' => 'site', 'uses' => 'Site\HomeController@index']);
+//Route::get('/   ', ['as' => 'site', 'uses' => 'Site\HomeController@index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
