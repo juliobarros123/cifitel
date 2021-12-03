@@ -27,31 +27,23 @@ class CreateUsersTable extends Migration
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('vc_nomeUtilizador')->nullable();
-            $table->string('vc_email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('primeiroNome')->nullable();
+            $table->string('nomeMeio')->nullable();
+            $table->string('ultimoNome')->nullable();
+            $table->string('email')->unique();
             $table->string('password');
-            $table->string('vc_tipoUtilizador')->default('Encarregado');
-            $table->string('vc_telefone')->nullable();
-            $table->string('vc_primemiroNome')->nullable();
-            $table->string('vc_nome_meio')->nullable();
-            $table->string('vc_apelido')->nullable();
-            $table->string('vc_genero')->nullable();
-            $table->string('vc_BI')->nullable();
-            $table->date('dt_data_nascimento')->nullable();
-            $table->unsignedBigInteger('it_num_processo')->nullable();
-            //$table->unsignedBigInteger('it_id_pai_utilizador')->nullable();
-            //$table->foreign('it_id_pai_utilizador')->references('id')->on('users')->onDelete('CASCADE')->onUpgrade('CASCADE')->nullable();
-            //$table->unsignedBigInteger('it_id_escola')->nullable();
-            //$table->foreign('it_id_escola')->references('id')->on('escolas')->onDelete('CASCADE')->onUpgrade('CASCADE')->nullable();
-            $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
+            $table->string('vc_nivel');
+            $table->string('vc_telefone')->unique()->nullable();
+            $table->string('genero')->nullable();
             $table->text('profile_photo_path')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
- 
+
 
 
     /**

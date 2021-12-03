@@ -9,11 +9,11 @@ use App\Models\User;
 
 class HomeController extends Controller
  {
-    public function index( ClasseDisciplina $data )
+    public function index( )
  {
-        $response['professores'] = User::where( 'vc_tipoUtilizador', 'Professor' )->get();
-        $response['cds'] = $data->classes_disciplinas()->get();
-        $response['uri'] = 'ops';
-        return view( 'site.index', $response );
+        // $response['professores'] = User::where( 'vc_tipoUtilizador', 'Professor' )->get();
+        // $response['cds'] = $data->classes_disciplinas()->get();
+        // $response['uri'] = 'ops';
+        return view( 'site.index',  );
     }
 }
