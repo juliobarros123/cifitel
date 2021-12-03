@@ -27,3 +27,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+
+route::get('/painel', ['as' => 'painel', 'uses' => 'Admin\HomeController@index']);

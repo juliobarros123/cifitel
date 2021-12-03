@@ -31,40 +31,13 @@ use App\Http\Controllers\Admin\NotificacaoController;
 
 class HomeController extends Controller
  {
-    private $menuDisciplina;
 
-    public function __construct()
- {
-        $this->menuDisciplina = new MenuController();
-        $this->middleware( 'auth' );
+    public function __construct(){
+
     }
 
-    public function raiz()
- {
-        $disciplinas2 = $this->menuDisciplina->listarPorId();
-        $response['disciplinas2'] = $disciplinas2;
-        $response['cabecalho'] = Cabecalho::orderby( 'id', 'desc' )->first();
+    public function index(){
 
-        $anolectivo = AnoLectivo::orderby( 'id', 'desc' )->first();
-        if ( $anolectivo ) {
-            $data = $anolectivo->ya_inicio . '-' . $anolectivo->ya_fim;
-
-            $response['AnoLectivo'] = $data;
-
-            // $response['selecionados'] = Alunno::where( [['vc_anoLectivo', $data]] )->count();
-            // $response['candidaturas'] = Candidatura::where( [['vc_anoLectivo', $data]] )->count();
-            // $response['matriculas'] = Matricula::where( [['vc_anoLectivo', $data]] )->count();
-            // $response['idadedecandidatura'] = IdadedeCandidatura::orderby( 'id', 'desc' )->first();
-
-            /* Gráficos */
-            $response['Anosgraficos'] = AnoLectivo::orderby( 'id', 'asc' )->get();
-            // $response['Cursosgraficos'] = Candidatura::where( [['vc_anoLectivo', $data]] )->orderBy( 'vc_nomeCurso', 'asc' )->groupby( 'vc_nomeCurso' )->get( 'vc_nomeCurso' );
-
-            /* ./Gráficos */
-        } else {
-            $response[''] = null;
-        }
-
-        return view( 'admin.index', $response );
+        return view('admin.dashboard');
     }
 }
